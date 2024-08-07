@@ -1,16 +1,13 @@
 import React, { useContext } from 'react'
 import BlogDetails from '../components/BlogDetails';
 import { AppContext } from '../context/AppContext';
-import { useLocation, useNavigate } from 'react-router-dom';
 import Pagination from '../components/Pagination';
 
 const CategoryPage = () => {
+  const { posts, loading,location,navigate } = useContext(AppContext);
 
-  const location=useLocation();
   const category=location.pathname.split("/").at(-1)
 
-  const { posts, loading } = useContext(AppContext);
-  const navigate=useNavigate()
 
 
   return (

@@ -1,18 +1,13 @@
 import React, { useContext } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import BlogDetails from '../components/BlogDetails';
 import Pagination from '../components/Pagination';
 
 const TagPage = () => {
 
-  const location=useLocation();
+  
+  const { posts, loading ,location,navigate} = useContext(AppContext);
   const tag=location.pathname.split("/").at(-1)
-
-  const navigate=useNavigate()
-
-
-  const { posts, loading } = useContext(AppContext);
 
 
   return (

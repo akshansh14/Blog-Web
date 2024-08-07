@@ -1,14 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/AppContext'
-import { useLocation, useNavigate } from 'react-router-dom';
 import BlogDetails from '../components/BlogDetails';
 
 const BlogPage = () => {
 
-  const{newBaseUrl,loading}=useContext(AppContext)
+  const{newBaseUrl,loading,location,navigate}=useContext(AppContext)
 
-  const location=useLocation();
-  const navigate=useNavigate()
+ 
 
   const [blog,setBlog]=useState([])
   const [relatedBlogs,setRelatedBlogs]=useState([])
@@ -33,6 +31,7 @@ catch{
 
 useEffect(()=>{
   fetchRelated()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 },[location.pathname])
 
   return (

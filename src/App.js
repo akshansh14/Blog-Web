@@ -7,17 +7,16 @@ import CategoryPage from "./pages/CategoryPage";
 import { useContext, useEffect } from "react";
 import { AppContext } from "./context/AppContext";
 import Navbar from "./components/Navbar";
-import Pagination from "./components/Pagination";
 
 
 
 export default function App() {
 
   const location =useLocation();
-  const [searchParam ,setSearchParam]=useSearchParams();
+  const [searchParam ]=useSearchParams();
   
 
-  const {fetchBlogs,posts}  =useContext(AppContext)
+  const {fetchBlogs}  =useContext(AppContext)
 
   useEffect(()=>{
 const page1=Number(searchParam.get("page")) || 1
@@ -29,12 +28,11 @@ if(location.pathname.includes("tags")){
 else if(location.pathname.includes("categories")){
   const category =location.pathname.split("/").at(-1).replaceAll("-"," ")
   fetchBlogs(page1,null , category)
-  console.log(page1,category)
 }
 else{
   fetchBlogs(page1)
 }
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   },[location.pathname ,location.search])
 
  

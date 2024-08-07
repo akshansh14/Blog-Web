@@ -1,7 +1,5 @@
-import useAxios from "axios-hooks";
 import { createContext, useState } from "react";
 import { baseUrl,newBaseUrl } from "../baseUrl";
-import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const AppContext = createContext();
@@ -11,9 +9,8 @@ export default function AppContextProvider({children}){
     const [posts,setPosts]=useState([])
     const [page,setPage]=useState(1)
     const [totalpage,setTotalpage]=useState(null)
-    const navigate=useNavigate();
-
-    const axios=useAxios();
+    const location=useLocation();
+    const navigate=useNavigate()
 
     
     async function fetchBlogs(page,tag,category){
@@ -60,7 +57,9 @@ export default function AppContextProvider({children}){
         setTotalpage,
         fetchBlogs,
         handlePage,
-        newBaseUrl
+        newBaseUrl,
+        location,
+        navigate
     }
 
     return <AppContext.Provider value={Value}>
