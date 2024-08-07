@@ -27,7 +27,7 @@ if(location.pathname.includes("tags")){
 }
 else if(location.pathname.includes("categories")){
   const category =location.pathname.split("/").at(-1).replaceAll("-"," ")
-  fetchBlogs(page1,null , category)
+  fetchBlogs(page1, null , category)
 }
 else{
   fetchBlogs(page1)
