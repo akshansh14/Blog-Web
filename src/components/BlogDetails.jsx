@@ -14,7 +14,7 @@ const BlogDetails = ({ post }) => {
       >{"By " }<p className="italic mx-1"> {post.author}</p> { " On " } 
 
 <NavLink to={`/categories/${post.category.replaceAll(" ","-")}`}>
-<p className="ml-1"> { post.category}</p></NavLink>
+<p className="ml-1 font-semibold"> { post.category}</p></NavLink>
       
       </div>
 

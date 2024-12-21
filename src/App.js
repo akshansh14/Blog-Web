@@ -43,10 +43,10 @@ else{
    
 
    <Routes>
-    <Route path="/" element={<HomePage/>} />
-    <Route path="/blog/:blogId" element={<BlogPage/>} />
-    <Route path="/tags/:tag" element={<TagPage/>} />
-    <Route path="/categories/:category" element={<CategoryPage/>} />
+      <Route path="/" element={<HomePage/>} />
+      <Route path="/blog/:blogId" element={<BlogPage/>} />
+      <Route path="/tags/:tag" element={<TagPage/>} />
+      <Route path="/categories/:category" element={<CategoryPage/>} />
    </Routes>
    </div>
   )
